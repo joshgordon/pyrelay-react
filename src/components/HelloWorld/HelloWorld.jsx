@@ -1,7 +1,11 @@
+/* @flow */
+
 import React, { Component } from 'react';
 
+type Props = {};
+
 class HelloWorld extends Component {
-  constructor (props) {
+  constructor (props: Props) {
     super (props);
   }
   render () {
