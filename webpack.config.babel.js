@@ -1,14 +1,17 @@
-import { HotModuleReplacementPlugin, NoErrorsPlugin } from 'webpack';
-import { resolve } from 'path';
+import {
+  HotModuleReplacementPlugin,
+  NoErrorsPlugin
+} from 'webpack';
+import path from 'path';
 
-const BUILD_DIR = resolve (__dirname, 'dist');
-const APP_DIR = resolve (__dirname, 'src');
+const BUILD_DIR = path.resolve (__dirname, 'dist');
+const APP_DIR = path.resolve (__dirname, 'src');
 
 export default {
   entry: [
     'webpack/hot/dev-server',
-    resolve (APP_DIR, 'index.html'),
-    resolve (APP_DIR, 'index.jsx')
+    path.resolve (APP_DIR, 'index.html'),
+    path.resolve (APP_DIR, 'index.jsx')
   ],
   output: {
     path: BUILD_DIR,
@@ -20,7 +23,6 @@ export default {
   },
   plugins: [
     new HotModuleReplacementPlugin (),
-    // new NoErrorsPlugin ()
   ],
   module : {
     loaders : [
@@ -33,11 +35,7 @@ export default {
         loader: "file?name=[name].[ext]"
       },
       {
-        test: /\.css$/,
-        loader: 'style!css'
-      },
-      {
-        test: /\.less$/,
+        test: /\.(css|less)$/,
         loader: 'style!css!less'
       },
       {

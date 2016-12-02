@@ -1,3 +1,1 @@
-export default {
-  FAKE_CONSTANT: "FAKE_CONSTANT"
-};
+export const SET_NAME = 'SET_NAME';

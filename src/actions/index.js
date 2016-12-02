@@ -1,8 +1,16 @@
-import Constants from '../constants/';
+/* @flow */
 
-export const fakeAction = (value) => {
+import {
+  SET_NAME
+} from '../constants/';
+
+const setName = (name: string): Object => {
   return {
-    type: Constants.FAKE_CONSTANT,
-    value
+    type: SET_NAME,
+    name
   }
+}
+
+export default {
+  setName
 };

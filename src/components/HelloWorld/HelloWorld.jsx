@@ -1,16 +1,33 @@
-/* @flow */
-
 import React, { Component } from 'react';
-
-type Props = {};
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { setName } from '../../actions';
 
 class HelloWorld extends Component {
-  constructor (props: Props) {
+  constructor (props) {
     super (props);
   }
+  handleNameChange = (event) => {
+    this.props.setName (event.target.value);
+  }
   render () {
-    return <h2>Hello, World!</h2>;
+    return <div>
+      <h2>Hello, {this.props.name}!</h2>
+      <input value={this.props.name} onChange={this.handleNameChange} />
+    </div>;
   }
 }
 
-export default HelloWorld;
+function mapStateToProps (state) {
+  return {
+    name: state.name
+  };
+}
+
+function mapDispatchToProps (dispatch) {
+  return bindActionCreators ({
+    setName
+  }, dispatch);
+}
+
+export default connect (mapStateToProps, mapDispatchToProps)(HelloWorld);
