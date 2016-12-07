@@ -1,10 +1,17 @@
+/* @flow */
+
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { setName } from '../../actions';
+import { setName } from '../../actions/';
+
+type Props = {
+  name?: string,
+  setName?: Function
+};
 
 class HelloWorld extends Component {
-  constructor (props) {
+  constructor (props: Props) {
     super (props);
   }
   handleNameChange = (event) => {

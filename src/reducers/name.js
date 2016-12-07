@@ -7,7 +7,7 @@ import {
 type State = string;
 
 type Action = {
-  type: string,
+  type?: string,
   name: string
 }
 
