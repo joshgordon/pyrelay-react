@@ -10,22 +10,25 @@ type Props = {
   setName?: Function
 };
 
-class HelloWorld extends Component {
-  constructor (props: Props) {
+export class HelloWorld extends Component {
+  constructor (props: Props): void {
     super (props);
   }
-  handleNameChange = (event) => {
+  handleNameChange = (event: any): void => {
     this.props.setName (event.target.value);
   }
-  render () {
+  render (): ?React$Element<any> {
     return <div>
       <h2>Hello, {this.props.name}!</h2>
-      <input value={this.props.name} onChange={this.handleNameChange} />
+      <input
+        value={this.props.name}
+        onChange={this.handleNameChange}
+      />
     </div>;
   }
 }
 
-function mapStateToProps (state) {
+function mapStateToProps (state): Props {
   return {
     name: state.name
   };
