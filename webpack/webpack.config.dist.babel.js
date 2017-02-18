@@ -1,36 +1,36 @@
+/* eslint-disable no-console */
+
 import webpack from 'webpack';
-import path from 'path';
 import {
-  DIST_BUILD_DIR,
-  DIST_INPUT_DIR
-} from './paths';
+  getEntry,
+  getOutput
+} from './internal';
 
 export const webpackDistConfig = {
   entry: [
-    path.resolve (DIST_INPUT_DIR, 'root.jsx'),
-    path.resolve (DIST_INPUT_DIR, 'index.html')
+    ...getEntry ('dist')
   ],
   output: {
     filename: 'bundle.js',
-    path: DIST_BUILD_DIR,
+    path: getOutput ('dist'),
     publicPath: '/'
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: [ '*', '.js', '.jsx' ]
   },
-  module : {
-    rules : [
+  module: {
+    rules: [
       {
-        test : /\.(js|jsx)?/,
+        test: /\.(js|jsx)?/,
         exclude: /node_modules/,
         loader: 'babel-loader'
       },
       {
         test: /\.(ico|html)$/,
-        loader: "file-loader",
+        loader: 'file-loader',
         query: {
-          name: "[name].[ext]"
+          name: '[name].[ext]'
         }
       },
       {
@@ -45,9 +45,9 @@ export const webpackDistConfig = {
         test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
         loader: 'url-loader',
         query: {
-          limit: "300000",
-          name: "[name].[ext]",
-          root: "."
+          limit: '300000',
+          name: '[name].[ext]',
+          root: '.'
         }
       }
     ]
@@ -57,7 +57,7 @@ export const webpackDistConfig = {
 export function webpackDistCompiler (callback) {
   const compiler = webpack (webpackDistConfig);
   compiler.run ((error, stats) => {
-    console.log (`Successfully bundled 'dist'`)
+    console.log ('Successfully bundled \'dist\'');
     console.log (stats.toString ({ chunks: false, colors: true }));
     if (callback) callback ();
   });
@@ -66,7 +66,7 @@ export function webpackDistCompiler (callback) {
 export function webpackDistWatcher () {
   const compiler = webpack (webpackDistConfig);
   return compiler.watch ({}, (error, stats) => {
-    console.log (`Successfully bundled 'dist'`)
+    console.log ('Successfully bundled \'dist\'');
     console.log (stats.toString ({ chunks: false, colors: true }));
   });
 }
