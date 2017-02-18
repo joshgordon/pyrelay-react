@@ -1,3 +1,3 @@
-import HelloWorld from './HelloWorld';
+/* @flow */
 
-export default { HelloWorld };
+export { default as HelloWorld } from './HelloWorld';

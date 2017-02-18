@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import { HelloWorld } from './HelloWorld';
+import React from 'react';
 import renderer from 'react-test-renderer';
+import HelloWorld from './HelloWorld';
 
 describe ('HelloWorld', () => {
-  test ('component should mount', () => {
+  it ('works', () => {
     const component = renderer.create (
       <HelloWorld name="Bob" />
     );
-    let tree = component.toJSON ();
+    const tree = component.toJSON ();
     expect (tree).toMatchSnapshot ();
   });
 });

@@ -6,14 +6,9 @@ import {
 
 type State = string;
 
-type Action = {
-  type?: string,
-  name: string
-}
-
 export default function (
   state: State = 'World',
-  action: Action
+  action: Object
 ): State {
   switch (action.type) {
     case SET_NAME:

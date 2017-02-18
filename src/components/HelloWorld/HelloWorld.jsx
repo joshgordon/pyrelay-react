@@ -1,16 +1,19 @@
 /* @flow */
 
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { setName } from '../../actions/';
+import './HelloWorld.less';
 
-type Props = {
-  name?: string,
-  setName?: Function
-};
+export type State = {
+  name: string
+}
 
-export class HelloWorld extends Component {
+export type Actions = {
+  setName: Function
+}
+
+type Props = State|Actions;
+
+export default class HelloWorld extends Component {
   constructor (props: Props): void {
     super (props);
   }
@@ -27,17 +30,3 @@ export class HelloWorld extends Component {
     </div>;
   }
 }
-
-function mapStateToProps (state): Props {
-  return {
-    name: state.name
-  };
-}
-
-function mapDispatchToProps (dispatch) {
-  return bindActionCreators ({
-    setName
-  }, dispatch);
-}
-
-export default connect (mapStateToProps, mapDispatchToProps)(HelloWorld);
