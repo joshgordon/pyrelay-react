@@ -13619,7 +13619,7 @@ exports.default = function () {
     { store: _store2.default },
     _react2.default.createElement(
       _reactRouter.Router,
-      { history: _reactRouter.browserHistory },
+      { history: _reactRouter.hashHistory },
       _react2.default.createElement(
         _reactRouter.Route,
         { path: '/', component: App },
