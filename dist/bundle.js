@@ -13622,7 +13622,7 @@ exports.default = function () {
       { history: _reactRouter.hashHistory },
       _react2.default.createElement(
         _reactRouter.Route,
-        { path: '/', component: App },
+        { path: location.pathname, component: App },
         _react2.default.createElement(_reactRouter.IndexRoute, { component: _components.HelloWorld })
       )
     )
@@ -13644,6 +13644,8 @@ var _store2 = _interopRequireDefault(_store);
 var _components = __webpack_require__(135);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+console.info(location);
 
 __webpack_require__(285);
 

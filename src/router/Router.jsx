@@ -8,6 +8,8 @@ import {
   HelloWorld
 } from '../components/';
 
+console.info (location);
+
 require ('font-awesome/less/font-awesome.less');
 
 const App = ({ children }: any): any => children;
@@ -16,7 +18,7 @@ export default function () {
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
-        <Route path="/" component={App}>
+        <Route path={location.pathname} component={App}>
           <IndexRoute component={HelloWorld} />
         </Route>
       </Router>
