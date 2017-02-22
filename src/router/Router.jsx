@@ -8,8 +8,6 @@ import {
   HelloWorld
 } from '../components/';
 
-console.info (location);
-
 require ('font-awesome/less/font-awesome.less');
 
 const App = ({ children }: any): any => children;

@@ -13645,8 +13645,6 @@ var _components = __webpack_require__(135);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-console.info(location);
-
 __webpack_require__(285);
 
 var App = function App(_ref) {
