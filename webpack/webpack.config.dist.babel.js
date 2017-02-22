@@ -3,8 +3,9 @@
 import webpack from 'webpack';
 import {
   getEntry,
-  getOutput
-} from './internal';
+  getOutput,
+  getPlugins
+} from './config';
 
 export const webpackDistConfig = {
   entry: [
@@ -19,6 +20,9 @@ export const webpackDistConfig = {
   resolve: {
     extensions: [ '*', '.js', '.jsx' ]
   },
+  plugins: [
+    ...getPlugins ('dist')
+  ],
   module: {
     rules: [
       {
@@ -29,7 +33,7 @@ export const webpackDistConfig = {
       {
         test: /\.(ico|html)$/,
         loader: 'file-loader',
-        query: {
+        options: {
           name: '[name].[ext]'
         }
       },
@@ -44,7 +48,7 @@ export const webpackDistConfig = {
       {
         test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
         loader: 'url-loader',
-        query: {
+        options: {
           limit: '300000',
           name: '[name].[ext]',
           root: '.'

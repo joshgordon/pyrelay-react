@@ -1,12 +1,13 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console, import/no-named-as-default */
 
 import webpack from 'webpack';
 import webpackDistConfig from './webpack.config.dist.babel';
 import {
   babelrc,
   getEntry,
-  getOutput
-} from './internal';
+  getOutput,
+  getPlugins
+} from './config';
 
 export default Object.assign ({}, webpackDistConfig, {
   entry: [
@@ -23,7 +24,9 @@ export default Object.assign ({}, webpackDistConfig, {
   },
   plugins: [
     new webpack.NamedModulesPlugin (),
-    new webpack.HotModuleReplacementPlugin ()
+    new webpack.HotModuleReplacementPlugin (),
+    ...getPlugins ('hot'),
+    ...getPlugins ('dist')
   ],
   module: {
     rules: [
@@ -32,7 +35,7 @@ export default Object.assign ({}, webpackDistConfig, {
         test: /\.(js|jsx)?/,
         exclude: /node_modules/,
         loader: 'babel-loader',
-        query: Object.assign ({}, babelrc, {
+        options: Object.assign ({}, babelrc, {
           babelrc: false,
           presets: babelrc.presets.map ((preset) => {
             if (preset === 'es2015') {

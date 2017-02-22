@@ -5,8 +5,9 @@ import {
   getEntry,
   getOutput,
   getExternals,
+  getPlugins,
   packageJSON
-} from './internal';
+} from './config';
 
 export const webpackLibConfig = {
   entry: [
@@ -23,9 +24,8 @@ export const webpackLibConfig = {
     extensions: [ '*', '.js', '.jsx' ]
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin ({
-      beautify: true
-    })
+    // new webpack.optimize.UglifyJsPlugin ({ beautify: true }),
+    ...getPlugins ('lib')
   ],
   module: {
     rules: [
