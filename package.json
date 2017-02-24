@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --config webpack.config.hot.babel.js",
     "build": "webpack --config webpack.config.dist.babel.js",
     "test": "jest",
-    "subtree:pull": "git subtree pull --prefix config git@github.com:enriquecaballero/react-boilerplate.git master"
+    "subtree:pull": "git subtree pull --prefix config git@github.com:enriquecaballero/react-app-config.git master"
   },
   "author": "",
   "license": "ISC",
