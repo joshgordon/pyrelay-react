@@ -4,9 +4,7 @@ import React from 'react';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import { Provider } from 'react-redux';
 import store from '../store/';
-import {
-  HelloWorld
-} from '../components/';
+import { HelloWorld } from '../components/';
 
 require ('font-awesome/less/font-awesome.less');
 

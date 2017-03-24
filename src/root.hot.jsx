@@ -7,7 +7,7 @@ import Router from './router/';
 
 declare var module: any;
 
-const render = (Component) => {
+const render = Component => {
   ReactDOM.render (
     <AppContainer>
       <Component />
