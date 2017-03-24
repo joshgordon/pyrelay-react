@@ -1,12 +1,20 @@
-/* eslint-disable import/no-named-as-default, import/no-unresolved */
+/* eslint-disable import/no-unresolved, import/no-named-as-default */
 
 import webpack from 'webpack';
 import path from 'path';
+import Dashboard from 'webpack-dashboard';
+import DashboardPlugin from 'webpack-dashboard/plugin';
 import webpackDistConfig from './webpack.config.dist.babel';
 import {
   ROOT,
   babelrc
 } from './config';
+
+/* Suppresses Webpack 2 `parseQuery` deprecation warning...
+  https://github.com/webpack/loader-utils/issues/56 */
+process.noDeprecation = true;
+
+const { setData } = new Dashboard ();
 
 export default Object.assign ({}, webpackDistConfig, {
   entry: [
@@ -21,11 +29,14 @@ export default Object.assign ({}, webpackDistConfig, {
     host: '0.0.0.0',
     contentBase: path.resolve (ROOT, 'dist'),
     publicPath: '/',
-    stats: { colors: true }
+    stats: { colors: true },
+    quiet: true
   },
   plugins: [
+    new DashboardPlugin (setData),
     new webpack.NamedModulesPlugin (),
     new webpack.HotModuleReplacementPlugin ()
+    /* ...webpackDistConfig.plugins */
   ],
   module: {
     rules: [
