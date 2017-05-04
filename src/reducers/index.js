@@ -1,7 +1,7 @@
 /* @flow */
 
-import { combineReducers } from 'redux';
-import name from './name';
+import { combineReducers } from "redux";
+import name from "./name";
 
 const rootReducer = combineReducers ({
   name

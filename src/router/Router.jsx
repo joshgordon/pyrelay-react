@@ -1,12 +1,12 @@
 /* @flow */
 
-import React from 'react';
-import { Router, Route, browserHistory, IndexRoute } from 'react-router';
-import { Provider } from 'react-redux';
-import store from '../store/';
-import { HelloWorld } from '../components/';
+import React from "react";
+import { Router, Route, browserHistory, IndexRoute } from "react-router";
+import { Provider } from "react-redux";
+import store from "../store/";
+import { HelloWorld } from "../components/";
 
-require ('font-awesome/less/font-awesome.less');
+require ("font-awesome/less/font-awesome.less");
 
 const App = ({ children }: any): any => children;
 
