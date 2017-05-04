@@ -1,7 +1,6 @@
 /* @flow */
 
-import React from 'react';
-import './HelloWorld.less';
+import React from "react";
 
 export type State = {
   name: string
