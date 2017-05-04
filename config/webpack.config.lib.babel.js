@@ -5,9 +5,7 @@ import path from "path";
 import { ROOT, externals, packageJSON } from "./config";
 
 export const webpackLibConfig = {
-  entry: [
-    path.resolve (ROOT, "src/components/index.js")
-  ],
+  entry: [ path.resolve (ROOT, "src/components/index.js") ],
   output: {
     path: path.resolve (ROOT, "lib"),
     filename: "index.js",
@@ -18,9 +16,7 @@ export const webpackLibConfig = {
   resolve: {
     extensions: [ "*", ".js", ".jsx" ]
   },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin ({ beautify: true })
-  ],
+  plugins: [ new webpack.optimize.UglifyJsPlugin ({ beautify: true }) ],
   module: {
     rules: [
       {
@@ -30,11 +26,7 @@ export const webpackLibConfig = {
       },
       {
         test: /\.(css|less)$/,
-        loaders: [
-          "style-loader",
-          "css-loader",
-          "less-loader"
-        ]
+        loaders: [ "style-loader", "css-loader", "less-loader" ]
       },
       {
         test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,

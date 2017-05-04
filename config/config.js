@@ -5,11 +5,11 @@ import fs from "fs";
 
 export const ROOT = process.cwd ();
 
-export const packageJSON = JSON.parse(
+export const packageJSON = JSON.parse (
   fs.readFileSync (path.resolve (path.resolve (ROOT, "package.json")), "utf8")
 );
 
-export const babelrc = JSON.parse(
+export const babelrc = JSON.parse (
   fs.readFileSync (path.resolve (path.resolve (__dirname, ".babelrc")), "utf8")
 );
 
