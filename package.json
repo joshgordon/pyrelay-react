@@ -7,10 +7,18 @@
     "start": "NODE_ENV=development webpack-dev-server --config webpack.config.hot.babel.js",
     "build": "NODE_ENV=production webpack --config webpack.config.dist.babel.js",
     "test": "jest",
-    "subtree:pull": "git subtree pull --prefix config git@github.com:enriquecaballero/react-app-config.git master"
+    "subtree:pull": "git subtree pull --prefix config git@github.com:enriquecaballero/react-app-config.git master",
+    "pretty": "prettier-eslint --write \"src/**/*.@(js|jsx)\"",
+    "precommit": "lint-staged"
   },
   "author": "",
   "license": "ISC",
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "prettier-eslint --write",
+      "git add"
+    ]
+  },
   "dependencies": {
     "express": "^4.14.0",
     "font-awesome": "^4.7.0",
@@ -46,9 +54,12 @@
     "eslint-plugin-react": "^6.10.3",
     "file-loader": "^0.10.1",
     "flow-bin": "^0.42.0",
+    "husky": "^0.13.3",
     "jest": "^18.1.0",
     "less": "^2.7.2",
     "less-loader": "^4.0.2",
+    "lint-staged": "^3.4.1",
+    "prettier-eslint-cli": "^3.4.3",
     "react-hot-loader": "next",
     "react-test-renderer": "^15.4.2",
     "style-loader": "^0.16.0",
