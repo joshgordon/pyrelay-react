@@ -8,7 +8,7 @@
     "build": "NODE_ENV=production webpack --config webpack.config.dist.babel.js",
     "test": "jest",
     "subtree:pull": "git subtree pull --prefix config git@github.com:enriquecaballero/react-app-config.git master",
-    "pretty": "prettier-eslint --write \"src/**/*.@(js|jsx)\"",
+    "pretty": "prettier-eslint --write \"{src,server}/**/*.@(js|jsx)\"",
     "precommit": "lint-staged"
   },
   "author": "",
