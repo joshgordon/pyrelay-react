@@ -1,8 +1,8 @@
-# react-boilerplate
+# react-app-boilerplate
 
 ## Demo
 
-https://enriquecaballero.github.io/react-boilerplate/
+https://enriquecaballero.github.io/react-app-boilerplate/
 
 ## Contributing
 
