@@ -17,10 +17,7 @@ node_js:
   - '7'
   - '6'
 script:
-  - yarn build:lib
-  - yarn build:dist
-after_success:
-  - yarn semantic-release
+  - yarn build
 branches:
   only:
     - master
