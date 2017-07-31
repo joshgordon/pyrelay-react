@@ -1,3 +1,5 @@
 /* @flow */
 
-export { default as HelloWorld } from "./HelloWorld";
+import Router from "./Router";
+
+export default Router;

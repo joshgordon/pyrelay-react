@@ -3,20 +3,25 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { AppContainer } from "react-hot-loader";
-import Router from "./router/";
+import { Provider } from "react-redux";
+import Router from "./components/";
+import store from "./store/";
+import "font-awesome/less/font-awesome.less";
 
-declare var module: any;
-
-const render = Component => {
+const render = (Component: ReactClass<any>) => {
   ReactDOM.render (
     <AppContainer>
-      <Component />
+      <Provider store={store}>
+        <Component />
+      </Provider>
     </AppContainer>,
     document.getElementById ("root")
   );
 };
 
 render (Router);
+
+declare var module: any;
 
 if (module.hot) {
   module.hot.accept ("./router/", () => {

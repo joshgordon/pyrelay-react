@@ -1,8 +1,7 @@
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
+import { createStore } from "redux";
 import rootReducer from "../reducers/";
 
-const store = createStore (rootReducer, applyMiddleware (thunk));
+const store = createStore (rootReducer);
 
 if (module.hot) {
   module.hot.accept ("../reducers/", () =>

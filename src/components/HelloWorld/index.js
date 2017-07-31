@@ -3,16 +3,15 @@
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import HelloWorld from "./HelloWorld";
-import type { State, Actions } from "./HelloWorld";
 import { setName } from "../../actions/";
 
-function mapStateToProps (state): State {
+function mapStateToProps (state: any): Object {
   return {
     name: state.name
   };
 }
 
-function mapDispatchToProps (dispatch: Function): Actions {
+function mapDispatchToProps (dispatch: any): Object {
   return bindActionCreators (
     {
       setName
