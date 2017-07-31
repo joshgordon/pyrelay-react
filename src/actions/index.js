@@ -3,7 +3,7 @@
 import { SET_NAME } from "../constants/";
 
 export const setName = (name: string): Object => {
-  return
+  return {
     type: SET_NAME,
     name
   };
