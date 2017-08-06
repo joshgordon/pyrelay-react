@@ -3,7 +3,7 @@ import express from "express";
 
 const PORT_NUMBER = 3000;
 const DIST_DIR = path.resolve (__dirname, "..", "dist");
-const MEDIA_DIR = path.resolve (__dirname, "..", "media");
+const MEDIA_DIR = path.resolve (__dirname, "..", "resources");
 
 /** Instantiate your
     express server instance **/

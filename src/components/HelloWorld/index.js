@@ -3,18 +3,22 @@
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import HelloWorld from "./HelloWorld";
-import { setName } from "../../actions/";
+import { setState, setStatus, connect_mqtt, disconnect_mqtt } from "../../actions/";
 
 function mapStateToProps (state: any): Object {
   return {
-    name: state.name
+    status: state.status,
+    state: state.state.toJS()
   };
 }
 
 function mapDispatchToProps (dispatch: any): Object {
   return bindActionCreators (
     {
-      setName
+      setState,
+      setStatus,
+      connect_mqtt,
+      disconnect_mqtt
     },
     dispatch
   );

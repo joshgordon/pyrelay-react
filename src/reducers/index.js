@@ -1,10 +1,12 @@
 /* @flow */
 
 import { combineReducers } from "redux";
-import name from "./name";
+import state from "./state";
+import status from "./status";
 
 const rootReducer = combineReducers ({
-  name
+  state,
+  status
 });
 
 export default rootReducer;
